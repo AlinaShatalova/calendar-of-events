@@ -1,0 +1,30 @@
+@font-face {
+    font-family: Avenir, sans-serif;
+    src: url(fonts/AvenirLTStd-Roman.otf);
+  }
+
+form {
+    font-family: Avenir, sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+}
+select {
+    padding: 9px 51px 8px 22px;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: Avenir, sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    color: #2E282C;
+    /*arrow*/
+    background: transparent;
+    background-image: url('./imgs/Vector.png');
+    background-repeat: no-repeat;
+    background-position-x: 93%;
+    background-position-y: 50%;
+    appearance: none;
+}
