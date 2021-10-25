@@ -27,16 +27,6 @@ const EventList = (props) => {
         }
     }
 
-    // function renderList() {
-    //     const result = [];
-    //     result.push(events[0]);
-    //     return (
-    //         <>
-    //         {result.map((res) => <EventCard key={res.id} event={res} />)}
-    //         </>
-    //     )
-    // }
-
     return (
         <div className='wrapper'>
             {renderList()}

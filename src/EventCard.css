@@ -53,6 +53,10 @@
     right: 40px;
 }
 
+.fav-pressed {
+    content: url('./imgs/fav-pressed.png');
+}
+
 .event-name {
     font-family: Avenir, sans-serif;
     font-size: 48px;

@@ -45,8 +45,8 @@ function App() {
     {id: 11, name: 'November'},
     {id: 12, name: 'December'},
   ])
-  const [userCity, setUserCity] = useState('');
-  const [userMonth, setUserMonth] = useState('');
+  const [userCity, setUserCity] = useState(cities[0]);
+  const [userMonth, setUserMonth] = useState(months[0].id);
 
   // const getEventInfo = async () => {
   //   const url = 'https://raw.githubusercontent.com/xsolla/xsolla-frontend-school-2021/main/events.json';
@@ -65,7 +65,12 @@ function App() {
   //   setEvents(json);
   // }
 
-  // useEffect(() => getEventInfo());
+  // useEffect(() => {
+  //   getEventInfo().then(() => {
+  //     setUserCity(cities[0]);
+  //     setUserMonth(months[0].id)
+  //   })
+  // });
 
   const handleChangeCity = (city) => {
     setUserCity(city);
