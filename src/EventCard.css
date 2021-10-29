@@ -7,23 +7,18 @@
     position: relative;
 }
 
-.temp {
+.event-card {
     position: relative;
     border-radius: 6px;
     background: rgba(0, 0, 0, 0.2);
     margin-bottom: 40px;
-    width: 100%;
+    width: calc(1/2*100% - (1 - 1/2)*40px);
     height: 400px;
     background-size: cover;
     background-repeat: no-repeat;
-
-    @media (min-device-width: 1600px) {
-        width: 600px;
-        height: 400px;
-    }
 }
 
-.date-border {
+.event-card__date-border {
     width: 80px;
     height: 80px;
     border: 2px solid #fff;
@@ -31,21 +26,21 @@
     position: absolute;
     top: 40px;
     left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.event-date {
+.event-card__date {
     color: #fff;
     font-family: Avenir, sans-serif;
     font-size: 48px;
     font-weight: 400;
     line-height: 66px;
-    position: absolute;
-    top: 9px;
-    left: 13px; 
 }
 
-.fav {
-    content: url('./imgs/fav.png');
+.event-card__favorite {
+    content: url('./imgs/fav-unpressed.svg');
     background-repeat: no-repeat;
     cursor: pointer;
     position: absolute;
@@ -53,11 +48,11 @@
     right: 40px;
 }
 
-.fav-pressed {
+.active {
     content: url('./imgs/fav-pressed.png');
 }
 
-.event-name {
+.event-card__name {
     font-family: Avenir, sans-serif;
     font-size: 48px;
     color: #fff;
@@ -66,4 +61,42 @@
     position: absolute;
     bottom: 40px;
     left: 40px;
+}
+
+@media (max-device-width: 1300px) {
+    .event-card {
+        width: 100%;
+    }
+}
+
+@media (max-device-width: 750px) {
+    .event-card__name {
+        font-size: 32px;
+    }
+    .event-card__date-border {
+        width: 60px;
+        height: 60px;
+    }
+    .event-card__date {
+        font-size: 32px;
+    }
+}
+
+@media (max-device-width: 660px) {
+    .event-card {
+        height: 250px;
+    }
+}
+
+@media (max-device-width: 620px) {
+    .event-card__name {
+        font-size: 24px;
+    }
+    .event-card__date-border {
+        width: 40px;
+        height: 40px;
+    }
+    .event-card__date {
+        font-size: 24px;
+    }
 }

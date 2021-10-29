@@ -3,7 +3,7 @@
     src: url(fonts/AvenirLTStd-Roman.otf);
 }
 
-.wrapper {
+.event-list {
     display: flex;
     margin-top: 42px;
     justify-content: space-between;
@@ -17,3 +17,10 @@
     line-height: 66px;
     color: #000;
 }
+
+@media (max-device-width: 810px) {
+    .event-list {
+        margin-top: 20px;
+    }
+}
+

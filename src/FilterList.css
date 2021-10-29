@@ -3,13 +3,14 @@
     src: url(fonts/AvenirLTStd-Roman.otf);
   }
 
-form {
+.filters {
     font-family: Avenir, sans-serif;
     font-size: 24px;
     line-height: 32px;
     font-weight: 500;
+    position: relative;
 }
-select {
+.filters__select {
     padding: 9px 51px 8px 22px;
     margin-left: 20px;
     margin-right: 20px;
@@ -22,9 +23,52 @@ select {
     color: #2E282C;
     /*arrow*/
     background: transparent;
-    background-image: url('./imgs/Vector.png');
+    background-image: url('./imgs/arrow.svg');
     background-repeat: no-repeat;
     background-position-x: 93%;
     background-position-y: 50%;
     appearance: none;
+}
+
+.filters__button {
+    width: 200px;
+    height: 50px;
+    margin-left: 20px;
+    font-family: Avenir, sans-serif;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 500;
+    border: 1px solid #444444;
+    border-radius: 6px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.unpressed {
+    background-color: #fff;
+    color: #2E282C;
+}
+
+.pressed {
+    background-color: #2E282C;
+    color: #fff;
+}
+
+@media (max-device-width: 1200px) {
+    .filters__select {
+        display: block;
+        margin: 10px 0px;
+    }
+    .filters__button {
+        top: 40px;
+    }
+}
+
+@media (max-device-width: 810px) {
+    .filters__button {
+        position: static;
+        margin-left: 0;
+        margin-top: 10px;
+    }
 }
