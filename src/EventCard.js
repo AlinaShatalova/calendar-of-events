@@ -1,20 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import './EventCard.css'
+import Context from './context';
 
 const EventCard = (props) => {
-    const { event } = props;
-    const [isFav, setIsFav] = useState(false);
-    const [favorites, setFavorites] = useState([]);
-
-    const handleChangeFav = () => {
-        setIsFav(!isFav);
-    }
+    const { addFavorite } = useContext(Context);
+    const { event, isFav } = props;
 
     return (
-            <div className="temp" style={{backgroundImage: `url(${event.image})`}}>
-                <div className="date-border"><div className="event-date">{event.date.split('.', 1)}</div></div>
-                <div className={"fav" + (isFav ? ' fav-pressed' : '')} onClick={handleChangeFav} />
-                <div className="event-name">{event.name}</div>
+            <div className="event-card" style={{backgroundImage: `url(${event.image})`}}>
+                <div className="event-card__date-border"><div className="event-card__date">{event.date.split('.', 1)}</div></div>
+                <div className={"event-card__favorite " + (isFav ? "active" : "")} onClick={() => {addFavorite(event)}} />
+                <div className="event-card__name">{event.name}</div>
             </div>
     )
 };

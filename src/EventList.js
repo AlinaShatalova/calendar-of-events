@@ -3,7 +3,7 @@ import EventCard from './EventCard'
 import './EventList.css'
 
 const EventList = (props) => {
-    const { events, city, month } = props;
+    const { events, isFavActive, favorites, city, month } = props;
 
     const filteredList = () => {
         const newList = events.filter((event) => {
@@ -14,12 +14,33 @@ const EventList = (props) => {
         return newList;
     }
 
+    const userFavoriteList = () => {
+        const newList = events.filter((event) => {
+            if (favorites.includes(Number(event.id))) {
+                return true;
+            } return false;
+        })
+        return newList;
+    }
+
     function renderList() {
         const filteredEvents = filteredList();
-        if (filteredEvents.length > 0) {
+        if (!isFavActive && filteredEvents.length > 0) {
             return (
                 <>
-                {filteredEvents.map((event) => <EventCard key={event.id} event={event} />)}
+                    {filteredEvents.map((event) => {
+                        return <EventCard key={event.id} event={event} isFav={favorites.includes(Number(event.id)) ? true : false} />
+                        
+                    })}
+                </>
+            )
+        }  else if (isFavActive && favorites.length > 0) {
+            const favoriteList = userFavoriteList();
+            return (
+                <>
+                    {favoriteList.map((event) => {
+                            return <EventCard key={event.id} event={event} isFav={favorites.includes(Number(event.id)) ? true : false} />                 
+                    })}
                 </>
             )
         } else {
@@ -28,7 +49,7 @@ const EventList = (props) => {
     }
 
     return (
-        <div className='wrapper'>
+        <div className="event-list">
             {renderList()}
         </div>
     )
