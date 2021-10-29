@@ -5,6 +5,7 @@ import EventList from './EventList';
 import Context from './context'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [events, setEvents] = useState([]);
   const [cities, setCities] = useState([]);
   const months = [
@@ -50,7 +51,8 @@ function App() {
   useEffect(() => {
     getEventInfo().then(() => {
       setUserCity(cities[0]);
-      setUserMonth(months[0].id)
+      setUserMonth(months[0].id);
+      setIsLoading(false);
     })
   });
 
@@ -92,13 +94,13 @@ function App() {
           city={userCity}
           month={userMonth}
         />
-        <EventList 
+        {isLoading ? <p className="loading" >Loading...</p> : <EventList 
           events={events}
           isFavActive={userActive}
           favorites={favorites}
           city={userCity}
           month={userMonth}
-        />
+        />}
       </div>
     </Context.Provider>
   );
