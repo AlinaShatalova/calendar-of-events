@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/calendar-of-events/static/css/main.01cb17af.chunk.css",
+    "main.js": "/calendar-of-events/static/js/main.b009a2a9.chunk.js",
+    "main.js.map": "/calendar-of-events/static/js/main.b009a2a9.chunk.js.map",
+    "runtime-main.js": "/calendar-of-events/static/js/runtime-main.1a700e56.js",
+    "runtime-main.js.map": "/calendar-of-events/static/js/runtime-main.1a700e56.js.map",
+    "static/js/2.8608bfd9.chunk.js": "/calendar-of-events/static/js/2.8608bfd9.chunk.js",
+    "static/js/2.8608bfd9.chunk.js.map": "/calendar-of-events/static/js/2.8608bfd9.chunk.js.map",
+    "static/js/3.2603ec2d.chunk.js": "/calendar-of-events/static/js/3.2603ec2d.chunk.js",
+    "static/js/3.2603ec2d.chunk.js.map": "/calendar-of-events/static/js/3.2603ec2d.chunk.js.map",
+    "index.html": "/calendar-of-events/index.html",
+    "static/css/main.01cb17af.chunk.css.map": "/calendar-of-events/static/css/main.01cb17af.chunk.css.map",
+    "static/js/2.8608bfd9.chunk.js.LICENSE.txt": "/calendar-of-events/static/js/2.8608bfd9.chunk.js.LICENSE.txt",
+    "static/media/EventList.css": "/calendar-of-events/static/media/AvenirLTStd-Roman.0bfb049d.otf",
+    "static/media/FilterList.css": "/calendar-of-events/static/media/arrow.c381148f.svg",
+    "static/media/EventCard.css": "/calendar-of-events/static/media/fav-unpressed.405cea49.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1a700e56.js",
+    "static/js/2.8608bfd9.chunk.js",
+    "static/css/main.01cb17af.chunk.css",
+    "static/js/main.b009a2a9.chunk.js"
+  ]
+}
