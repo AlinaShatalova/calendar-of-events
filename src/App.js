@@ -21,52 +21,57 @@ function App() {
     {id: 10, name: 'October'},
     {id: 11, name: 'November'},
     {id: 12, name: 'December'},
+    {id: 13, name: 'All months'},
   ];
+
   const [userCity, setUserCity] = useState('');
-  const [userMonth, setUserMonth] = useState('');
+  const [userMonth, setUserMonth] = useState(String(13));
   const [userActive, setUserActive] = useState(false);
   const [favorites, setFavorites] = useState([]);
 
-  const getEventInfo = async () => {
-    const url = 'https://raw.githubusercontent.com/xsolla/xsolla-frontend-school-2021/main/events.json';
-    
-    const response = await fetch(url);
-    const json = await response.json();
-
-    const cities = [];
-    json.forEach((item) => {
-      if (!cities.includes(item.city)) {
-        cities.push(item.city);
-      }
-  });
-
-    setCities(cities);
-    setEvents(json);
-  }
-
-  // useEffect(() => {
-  //   getEventInfo();
-  // })
 
   useEffect(() => {
-    getEventInfo().then(() => {
-      setUserCity(cities[0]);
-      setUserMonth(months[0].id);
-      setIsLoading(false);
-    })
-  });
+    getEventInfo();
+    }, []);
 
-  const handleChangeCity = (city) => {
-    setUserCity(city);
+  const getEventInfo = () => {
+    const url = 'https://raw.githubusercontent.com/xsolla/xsolla-frontend-school-2021/main/events.json';
+    
+    fetch(url)
+      .then((response) => response.json())
+      .then((json) => {
+        setEvents(json);
+
+        const cities = [];
+        json.forEach((item) => {
+          if (!cities.includes(item.city)) {
+            cities.push(item.city);
+          }
+        })
+        cities.push('All cities');
+        setCities(cities);
+
+        setUserCity(cities[cities.length - 1]);
+
+        let savedFavs = localStorage.getItem('savedFavorites') === null ? [] : JSON.parse(localStorage.getItem('savedFavorites'));
+        setFavorites(savedFavs);
+      })
+      .then(() => setIsLoading(false))
   }
 
-  const handleChangeMonth = (month) => {
-    setUserMonth(month);
+  const handleChangeCity = (e) => {
+    setUserCity(e.target.value);
+  }
+
+  const handleChangeMonth = (e) => {
+    setUserMonth(e.target.value);
   }
 
   function handleFavActive(e) {
     e.preventDefault();
     setUserActive(!userActive);
+    setUserCity(cities[cities.length - 1]);
+    setUserMonth(String(13));
   }
 
   function addFavorite(event) {
@@ -78,6 +83,7 @@ function App() {
       favs = favorites.filter((fav) => fav !== eventId);
     }
     setFavorites(favs);
+    localStorage.setItem('savedFavorites', JSON.stringify(favs));
 }
 
   return (
